@@ -1,7 +1,2 @@
-from fastapi import FastAPI
+#  write your solution here
 
-app = FastAPI()
-
-@app.get('/')
-def get_all() -> None:
-    return {"messge" : "Welcome to Kenya"}
