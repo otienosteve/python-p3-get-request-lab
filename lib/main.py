@@ -4,4 +4,4 @@ app = FastAPI()
 
 @app.get('/')
 def get_all() -> None:
-    return {"message" : "Welcome to Kenya"}
+    return {"messge" : "Welcome to Kenya"}
