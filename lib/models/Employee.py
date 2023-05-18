@@ -5,4 +5,17 @@ Base= declarative_base()
 
 
 class Employee():
+    __tablename__ = 'employees'
     first_name = Column(String)
+
+
+
+
+
+
+
+
+
+
+
+engine= create_engine()
