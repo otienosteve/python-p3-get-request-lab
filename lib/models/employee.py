@@ -5,7 +5,9 @@ Base= declarative_base()
 
 
 class Employee(Base):
+
     __tablename__ = 'employees'
+
     id = Column(Integer, primary_key=True)
     first_name = Column(String)
     last_name = Column(String)
@@ -15,6 +17,8 @@ class Employee(Base):
     phone_number = Column(Integer)
     salary = Column(Float)
     designation = Column(String)
+
+
 
 engine = create_engine('sqlite:///db.db')
 

@@ -2,12 +2,12 @@ import pytest
 from ..main import app, Employee
 from fastapi.testclient import TestClient
 from fastapi import status
-from ..models import Employee, session
+from ..models.employee import Employee, session
 
 @pytest.fixture(scope='session')
 def data() -> None:
-    # return session.query(Employee).all()
-    return "okay"
+    employees = session.query(Employee).all()
+    return employees
 
 @pytest.fixture(scope='session')
 def client():
