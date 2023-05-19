@@ -1,9 +1,9 @@
 import json
 import pytest
-from ..main import app, EmployeeSchema
-from fastapi.testclient import TestClient
 from fastapi import status
 from operator import itemgetter
+from fastapi.testclient import TestClient
+from ..main import app, EmployeeSchema
 
 data =[
 {

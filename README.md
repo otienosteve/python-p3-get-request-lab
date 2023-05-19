@@ -46,7 +46,7 @@ phone_number -> Integer
 salary -> Integer
 designation -> String
 ```
-Create a corresponding Pydantic class for the model and use it to annotate your endpoints as per the return type.
+Create a corresponding Pydantic class called `EmployeeSchema` for the model and use it to annotate your endpoints as per the return type.
 
 implement the following endpoints and the required functionality.
 
@@ -61,7 +61,15 @@ or `uvicorn lib.main:app --reload` to enable reloading on file changes
 
 To test your solution run ` pytest `
 
-once all tests have passed , commit
+## Resources 
+
+[Get Requests With FastAPI](https://betterprogramming.pub/how-to-create-a-get-request-in-fastapi-ecdc794b0cf)   
+[Validation With Pydantic](https://docs.pydantic.dev/latest/usage/validators/)  
+[Error Handling in FastAPI](https://fastapi.tiangolo.com/tutorial/handling-errors/)    
+[Response Model - Return Type in FastAPI](https://fastapi.tiangolo.com/tutorial/response-model/)    
+[Path Parameters](https://fastapi.tiangolo.com/tutorial/path-params/)   
+
+
 
 
 
