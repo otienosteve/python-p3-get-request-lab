@@ -1,6 +1,6 @@
 import json
 import pytest
-from ..main import app, EmployeeSch
+from ..main import app, EmployeeSchema
 from fastapi.testclient import TestClient
 from fastapi import status
 from operator import itemgetter
@@ -90,7 +90,7 @@ def client():
     return TestClient(app)
 
 def test_schema()-> None:
-    emp = EmployeeSch(id=1, first_name="Donald", last_name='Knuth', gender='Male', age=24, salary=200000, phone_number=254712345678, email='donaldknuth@gmail.com', designation='Professor')
+    emp = EmployeeSchema(id=1, first_name="Donald", last_name='Knuth', gender='Male', age=24, salary=200000, phone_number=254712345678, email='donaldknuth@gmail.com', designation='Professor')
    
     assert emp.id == 1
     assert emp.first_name == "Donald"
