@@ -84,15 +84,22 @@ data =[
 'designation': 'Subcontractor'
 }
 ]
-# serialised_data = [json.dumps(obj) for obj in data ]
+
 @pytest.fixture(scope='session')
 def client():
     return TestClient(app)
 
 def test_schema()-> None:
-    emp = EmployeeSch(id=1, first_name="Donald", last_name='Knuth', gender='Male', age=24, salary=43000, phone_number=254712345678, email='donaldknuth@gmail.com', designation='It Dept')
-    # last_name , firs_tname, email, age, phone_number, salary, designation
-    assert emp.age == 24, f'age is not {24}'
+    emp = EmployeeSch(id=1, first_name="Donald", last_name='Knuth', gender='Male', age=24, salary=200000, phone_number=254712345678, email='donaldknuth@gmail.com', designation='Professor')
+   
+    assert emp.id == 1
+    assert emp.first_name == "Donald"
+    assert emp.last_name == 'Knuth'
+    assert emp.email == 'donaldknuth@gmail.com'
+    assert emp.gender == 'Male'
+    assert emp.salary == 200000
+    assert emp.phone_number == 254712345678
+    assert emp.designation == 'Professor'
 
 def test_root(client: TestClient):
     res = client.get('/')
