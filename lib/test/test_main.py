@@ -102,3 +102,6 @@ def test_root(client: TestClient):
 def test_student_single(client: TestClient):
     res = client.get('employee/2')
     assert res.json() == data[1]
+
+def test_payment(client: TestClient):
+    res=client.get('employee/paygrade')
