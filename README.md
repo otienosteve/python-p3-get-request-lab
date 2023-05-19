@@ -1,11 +1,12 @@
-Create an Employee With the following Schema
+Create an Employee Schema With the following fields.
+This should be the Base Schema for the employee data type you are dealing with. 
 
 ```last_name -> String 
 firs_tname -> String 
 email -> String 
-age -> Number
-phone_number -> Number 
-salary -> Float
+age -> Integer
+phone_number -> Integer 
+salary -> Integer
 designation -> String
 ```
 
