@@ -3,7 +3,7 @@ import pytest
 from ..main import app, EmployeeSch
 from fastapi.testclient import TestClient
 from fastapi import status
-from ..models.employee import session, Employee
+from operator import itemgetter
 
 data =[
 {
@@ -104,4 +104,7 @@ def test_student_single(client: TestClient):
     assert res.json() == data[1]
 
 def test_payment(client: TestClient):
-    res=client.get('employee/paygrade')
+    res=client.get('/employee/salary/asc')
+    order = sorted(data, key=itemgetter('salary'))
+    assert res.json() == order
+

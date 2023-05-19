@@ -27,9 +27,14 @@ def root() -> List[EmployeeSch]:
     return employees
 
 @app.get('/employee/{employee_id}')
-def employee(employee_id: int):
+def employee(employee_id: int) -> EmployeeSch:
     single = session.query(Employee).filter_by(id = employee_id).first()
     return single
+
+@app.get('/employee/salary/desc')
+def paygrade() -> List[EmployeeSch]:
+    order = session.query(Employee).order_by(Employee.salary.asc()).all()
+    return order
 
 
 
