@@ -1,10 +1,35 @@
 ##  Get requests with FastApi Lab
+
+#### setup 
+
+Fork and clone this repo, then navigate into the cloned folder 
+
+spawn a virtual environment `pipenv shell`
+
+install relevant dependencies `pipenv install`
+
 ### Instructions
 
-Data for working on this lab is available in the database (db.db). 
-The model has also been created. Your focus should be on implementing the routes and the associated functionality. 
+Here's the directory structure
+```
+├── lib
+│   ├── models
+│   │   ├── employee.py
+│   ├── test
+|   |   |──test_main.py
+|   |   |
+│   ├── main.py
+├── db.db
+├── Pipfile
+├── Pipfile.lock
+|── README.md
 
-import the session object and the Employee Model from the models package and make use of them when implementing your solution.   
+```
+You will be working on data about Employees.
+The Employee Model has been created and is available under  in the models directory under the lib folder, data to work on this lab is available in the database file (db.db). 
+Your focus should be on implementing the routes and the associated functionality.
+
+import the session object and the Employee Model from the models package and make use of them when implementing your soltution.   
 
 Inside the lib folder you will find a file `main.py` where you are expected to write your solution. 
 
@@ -21,7 +46,7 @@ phone_number -> Integer
 salary -> Integer
 designation -> String
 ```
-Create a corresponding Pydantic class for the model and use it to annotate your endpoints as required by the return type.
+Create a corresponding Pydantic class for the model and use it to annotate your endpoints as per the return type.
 
 implement the following endpoints and the required functionality.
 
@@ -32,8 +57,11 @@ implement the following endpoints and the required functionality.
 - `GET /employees/age/old`: returns the oldest employee as an object
 
 To run your server run `uvicorn lib.main:app` 
-or `uvicorn lib.main:app -reload` to enable reloading on file changes 
+or `uvicorn lib.main:app --reload` to enable reloading on file changes 
 
 To test your solution run ` pytest `
+
+once all tests have passed , commit
+
 
 
