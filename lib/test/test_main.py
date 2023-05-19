@@ -102,7 +102,7 @@ def test_schema()-> None:
     assert emp.designation == 'Professor'
 
 def test_root(client: TestClient):
-    res = client.get('/')
+    res = client.get('/employees')
     assert res.status_code == status.HTTP_200_OK, "Invalid Http Code"
     assert res.json() == data, f'invalid response'
 

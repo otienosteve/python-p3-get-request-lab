@@ -20,8 +20,8 @@ class EmployeeSchema(BaseModel):
     class Config:
         orm_mode=True
 
-@app.get('/')
-def root() -> List[EmployeeSchema]:
+@app.get('/employees')
+def employee() -> List[EmployeeSchema]:
     employees = session.query(Employee).all()
 
     return employees
