@@ -100,11 +100,25 @@ def test_root(client: TestClient):
     assert res.json() == data, f'invalid response'
 
 def test_student_single(client: TestClient):
-    res = client.get('employee/2')
+    res = client.get('employees/2')
     assert res.json() == data[1]
 
+
+def test_oldest(client: TestClient):
+    res = client.get('/employees/age/old') 
+    assert res.json() == {
+  "id": 3,
+  "first_name": "Lucille",
+  "last_name": "Oulett",
+  "email": "loulett2@jigsy.com",
+  "age": 54,
+  "gender": "Female",
+  "phone_number": 6469701273,
+  "salary": 121396,
+  "designation": "Surveyor"
+}
+
 def test_payment(client: TestClient):
-    res=client.get('/employee/salary/asc')
+    res=client.get('/employees/salary/asc')
     order = sorted(data, key=itemgetter('salary'))
     assert res.json() == order
-

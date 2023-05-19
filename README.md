@@ -16,8 +16,8 @@ the method should return an array of employees present in the Database.
 
 - `GET /employees`: returns an array of JSON objects for all employees present in the database.
 - `GET /employees/:id`: returns a single student as JSON object
-- `GET /employees/paygrade`: returns an array of employees from highest paid to lowest Paid
-- `GET /employees/oldest`: returns the oldest employee as an object
+- `GET /employees/salary/asc`: returns an array of employees from highest paid to lowest Paid
+- `GET /employees/age/old`: returns the oldest employee as an object
 
 
 

@@ -1,6 +1,6 @@
 #  write your solution here
 from typing import List
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from .models.employee import Employee, session
 
@@ -26,15 +26,25 @@ def root() -> List[EmployeeSch]:
 
     return employees
 
-@app.get('/employee/{employee_id}')
+@app.get('/employees/{employee_id}')
 def employee(employee_id: int) -> EmployeeSch:
     single = session.query(Employee).filter_by(id = employee_id).first()
+    if not single:
+        raise HTTPException(status_code=404, detail="Employee does not exist in our databse")
     return single
 
-@app.get('/employee/salary/desc')
+@app.get('/employees/salary/asc')
 def paygrade() -> List[EmployeeSch]:
     order = session.query(Employee).order_by(Employee.salary.asc()).all()
     return order
+
+@app.get('/employees/age/old')
+def oldest()-> EmployeeSch:
+    oldest = session.query(Employee).order_by(Employee.age.desc()).all()[0]
+    return oldest 
+
+
+
 
 
 
