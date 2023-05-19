@@ -96,16 +96,18 @@ def test_schema()-> None:
 
 def test_root(client: TestClient):
     res = client.get('/')
-    assert res.status_code == status.HTTP_200_OK, "unsuccesful request"
+    assert res.status_code == status.HTTP_200_OK, "Invalid Http Code"
     assert res.json() == data, f'invalid response'
 
 def test_student_single(client: TestClient):
     res = client.get('employees/2')
+    assert res.status_code == 200
     assert res.json() == data[1]
 
 
 def test_oldest(client: TestClient):
     res = client.get('/employees/age/old') 
+    assert res.status_code == 200
     assert res.json() == {
   "id": 3,
   "first_name": "Lucille",
@@ -121,4 +123,10 @@ def test_oldest(client: TestClient):
 def test_payment(client: TestClient):
     res=client.get('/employees/salary/asc')
     order = sorted(data, key=itemgetter('salary'))
+    assert res.status_code == 200
     assert res.json() == order
+
+def test_non_existent_user(client: TestClient):
+    res=client.get('/employees/1000')
+    assert res.status_code == 404 
+    assert res.json() == {"detail": "Employee does not exist in our databse"}
