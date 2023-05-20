@@ -54,7 +54,7 @@ implement the following endpoints and the required functionality.
 - `GET /employees/:id`: returns a single student as JSON object
     - For the endpoint above implement an exception handler for a non existent entry in the database which should yield the appropriate status code and the message "Employee does not exist in our databse"
 - `GET /employees/salary/asc`: returns an array of employees from lowest paid to highest paid
-- `GET /employees/age/old`: returns the oldest employee as an object
+- `GET /employees/age/old`: returns a JSON response with the details of the oldest employee
 
 To run your server run `uvicorn lib.main:app` 
 or `uvicorn lib.main:app --reload` to enable reloading on file changes 
