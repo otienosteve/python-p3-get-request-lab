@@ -2,7 +2,7 @@
 from typing import List
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from .models.employee import Employee, session
+from .employee import Employee, session
 
 app= FastAPI()
 
